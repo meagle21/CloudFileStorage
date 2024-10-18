@@ -1,5 +1,9 @@
-variable AWS_REGION {
+variable PRIMARY_AWS_REGION {
     default = "us-east-2"
+}
+
+variable BACKUP_AWS_REGION {
+    default = "us-east-1"
 }
 
 variable BUCKET_NAME {
@@ -17,3 +21,4 @@ variable KEY_ROTATION_SCHEDULE {
 variable KEY_ALGORITHM {
     default = "aws:kms"
 }
+
