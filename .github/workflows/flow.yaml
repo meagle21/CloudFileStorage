@@ -27,11 +27,13 @@ jobs:
 
       - name: Terraform Plan
         run: terraform plan -out=plan.tfplan
+        working-directory: ./infra
         env:
           TF_API_TOKEN: ${{ secrets.TF_TOKEN }}
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main'
         run: terraform apply plan.tfplan
+        working-directory: ./infra
         env:
           TF_API_TOKEN: ${{ secrets.TF_TOKEN }}
