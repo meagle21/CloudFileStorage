@@ -1,22 +1,22 @@
-terraform {
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 5.0"
-    }
-  }
-}
-
-provider "aws" {
-  region = var.AWS_REGION
-}
-
-# resource "aws_s3_bucket" "root-s3-bucket" {
-#   bucket = "${var.BUCKET_NAME}-${var.AWS_REGION}"
-#   tags = {
-#     Name = var.APP_NAME
+# terraform {
+#   required_providers {
+#     aws = {
+#       source  = "hashicorp/aws"
+#       version = "~> 5.0"
+#     }
 #   }
 # }
+
+# provider "aws" {
+#   region = var.AWS_REGION
+# }
+
+resource "aws_s3_bucket" "root-s3-bucket" {
+  bucket = "${var.BUCKET_NAME}-${var.AWS_REGION}"
+  tags = {
+    Name = var.APP_NAME
+  }
+}
 
 # resource "aws_kms_key" "encryption_key" {
 #   description             = "This key is used to encrypt bucket objects"
